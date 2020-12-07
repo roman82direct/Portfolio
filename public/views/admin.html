@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+    {% if admin %}
+        <h1>Админка</h1>
+        <p>Добро пожаловать, {{ name }}</p>
+
+    <button style="background-color: #c9302c; border: none" class='btn btn-primary' id="admGoods">Открыть товары</button>
+    <button style="background-color: #c9302c; border: none" class='btn btn-primary' id="admOrders">Просмотреть заказы</button>
+
+    <form style="margin-top: 20px" action='index.php?act=newgood&c=goodedit' method='post'>
+    <input type='submit' value='Загрузить новый товар' class='btn btn-primary'>
+    </form>
+
+    <div id="showAdm" class="galbl"></div>
+
+    {% else %}
+        <p>У Вас нет прав администратора</p>
+    {% endif %}
+
+</div>
+<script>
+    let admButGoods = document.getElementById('admGoods');
+    let admContShow = document.getElementById('showAdm');
+    admButGoods.onclick = (event) => {
+        admContShow.removeAttribute('class', '');
+        admContShow.setAttribute('class', "galbl");
+        admContShow.innerHTML = '';
+        event.preventDefault();
+        $.ajax({
+            url: './models/adminModels.php',
+            method: 'GET',
+            dataType: 'html',
+            data: "goods=1",
+            success: function(html){
+                if (html){
+                    admContShow.innerHTML = html;
+                } else {
+                    admContShow.innerText = 'Ошибка загрузки';
+                }
+            }
+        })
+    }
+
+    let admButOrders = document.getElementById('admOrders');
+    admButOrders.onclick = (event) => {
+        // admContShow.removeAttribute('class', 'galbl');
+        // admContShow.setAttribute('class', "orders");
+        admContShow.innerHTML = '';
+        event.preventDefault();
+
+        $.ajax({
+            url: './models/adminModels.php',
+            method: 'GET',
+            dataType: 'html',
+            data: "orders=1",
+            success: function(html){
+                if (html){
+                    admContShow.innerHTML = html;
+                } else {
+                    admContShow.innerText = 'Ошибка загрузки';
+                }
+            }
+        })
+    }
+</script>
+{% endblock %}
+
+

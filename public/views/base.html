@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>{{ title }}</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+  <link href="public/css/bootstrap.css" rel="stylesheet">
+  <link href="public/css/starter-template.css" rel="stylesheet">
+  <link href="public/css/style.css" rel="stylesheet">
+  <link href="public/css/modalstyles.css" rel="stylesheet">
+<!--  <link href="css/styleanother1.css" rel="stylesheet">-->
+
+  <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+  <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+      <![endif]-->
+</head>
+  <body>
+
+   <div class="navbar navbar-inverse" role="navigation"><!--для фиксации меню добавь класс navbar-fixed-top-->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        {% include 'header.html' %}
+        <div class="collapse navbar-collapse">
+            <div class="navflex">
+                <ul class="nav navbar-nav">
+                    <li {% if main %} class="active" {% endif %}><a class="menu-link" href="index.php">Главная</a></li>
+                    <li class=""><a class="menu-link" href="index.php#about">О нас</a></li>
+<!--                    <li class=""><a href="index.php#serv">Сервис</a></li>-->
+<!--                    <li class=""><a href="index.php#team">Команда</a></li>-->
+                    <li {% if catalog %} class="active" {% endif %}><a class="menu-link" href="index.php?act=view&c=catalog">Каталог</a></li>
+                    <li {% if contacts %} class="active" {% endif %}><a class="menu-link" href="index.php?act=view&c=contacts">Контакты</a></li>
+                </ul>
+
+          {% if user %}
+                {% if user.role %}
+          <ul class="nav navbar-nav  navbar-right">
+              <li {% if basket %} class="active" {% endif %}><a class="menu-link" href="index.php?act=view&c=basket">Корзина ({{ goodsInBasket }}) <i class="fas fa-shopping-cart"></i></a></li>
+              <li {% if username %} class="active" {% endif %}><a class="menu-link" href="index.php?act=logout&c=user">Выход ({{ user.name }}) <i class="fas fa-door-open"></i></a></li>
+              <li {% if admin %} class="active" {% endif %} ><a class="menu-link" href="index.php?act=view&c=admin">Админка {{ user.name }} <i class="fa fa-cogs" aria-hidden="true"></i></a></li>
+          </ul>
+                {% else %}
+                <ul class="nav navbar-nav  navbar-right">
+                    <li {% if basket %} class="active" {% endif %}><a class="menu-link" href="index.php?act=view&c=basket">Корзина ({{ goodsInBasket }}) <i class="fas fa-shopping-cart"></i></a></li>
+                    <li {% if username %} class="active" {% endif %}><a class="menu-link" href="index.php?act=logout&c=user">Выход ({{ user.name }}) <i class="fas fa-door-open"></i></a></li>
+                </ul>
+                {% endif %}
+
+          {% else %}
+          <ul class="nav navbar-nav  navbar-right">
+              <li {% if basket %} class="active" {% endif %}><a class="menu-link" href="index.php?act=view&c=basket">Корзина ({{ goodsInBasket }}) <i class="fas fa-shopping-cart"></i></a></li>
+              <li {% if username %} class="active" {% endif %}><a class="menu-link" href="index.php?act=login&c=user">Вход <i class="fas fa-door-open"></i></a></li>
+          </ul>
+          {% endif %}
+        </div>
+        </div>
+    </div>
+
+      {% block content %}{% endblock %}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="public/js/jquery-1.10.2.min.js"></script>
+    <script src="public/js/bootstrap.min.js"></script>
+  </body>
+</html>

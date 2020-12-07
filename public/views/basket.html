@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+<h1>Корзина</h1>
+{% if goods %}
+<form action="index.php?act=clear&c=basket" method="post">
+    <input type="submit" value="Удалить товары из корзины" class="btn btn-default"> <br>
+</form>
+
+<table class="table table-condensed">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Наименование</th>
+      <th>Цена</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% set count = 0 %}
+    {% for good in goods %}
+    {% set count = count + 1 %}
+    <tr>
+      <td>{{ count }}</td>
+      <td>{{ good.name }}</td>
+      <td>{{ good.price }}</td>
+    </tr>
+    {% endfor %}  
+    <tr>
+      <td colspan="2"><strong>Итого:</strong></td>
+      <td>{{ total }}</td>
+    </tr>    
+  </tbody>
+</table>
+{% if user %}
+<form action="index.php?act=toOrder&c=basket" method="post">
+  <div class="form-group">
+    <label for="adr">Адрес доставки:</label>
+    <input type="text" class="form-control" name="adr" id="adr" placeholder="Адрес доставки">
+  </div>
+  <button type="submit" class="btn btn-primary">Оформить заказ</button> 
+</form>
+{% endif %}
+{% else %}
+<p>Пока пусто...</p>
+{% endif %}
+
+{% if user %}
+<h2>Ваши заказы:</h2>
+<table class="table table-condensed"></tbody>
+  <thead>
+    <tr>
+      <th>Дата заказа</th>
+      <th>Сумма</th>
+      <th>Адрес</th>
+      <th>Статус</th>
+    </tr>
+  </thead>
+  <tbody>
+{% for order in orders %}
+<tr>
+  <td>{{ order.datetime_create }}</td>
+  <td>{{ order.amount }}</td>
+  <td>{{ order.destination }}</td>
+  <td>{{ order.order_status_name }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endif %}
+</div>
+{% endblock %}

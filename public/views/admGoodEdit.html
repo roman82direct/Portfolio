@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+    <h1>Редактор товаров</h1>
+    <p>Товар ID= {{id_good}} </p>
+
+    <form action="index.php?act=saveGood&c=admin" method="post">
+        <input type="hidden" id="id" name="goodId" value="{{id_good}}">
+        <label for="title">Наименование</label>
+        <input type="text" id="title" name="title" value="{{name}}">
+        <label for="price">Цена</label>
+        <input style="width: 50px" type="text" id="price" name="price" value="{{price}}">
+        <br>
+        <br>
+        <label for="discr">Описание</label> <br>
+        <textarea name="discr" id="discr" cols="62" rows="10">{{ discr }}</textarea>
+        <br>
+        <br>
+        <input type="submit" value="Сохранить" class="btn btn-primary">
+    </form>
+
+    <form style="margin-top: 10px" action="index.php?act=deleteGood&c=admin" method="post">
+        <input type="hidden" name="goodId" value="{{id_good}}">
+        <input type="submit" value="Удалить товар из каталога" class="btn btn-primary">
+    </form>
+
+    <form style="margin-top: 30px; width: 40%; padding: 20px; border: 1px solid grey" action="index.php?act=changeImg&c=admin" method="post" enctype="multipart/form-data">
+        <label for="admimg">Фото каталога: {{ img }}</label><br>
+        <div class="imgedit">
+            <img id="admimg" class="admimg" src="public/catalogImg/{{img}}">
+                <div>
+                    <h4>Изменить картинку</h4>
+                    <input type="file" name="img" accept="image/jpeg, image/png">
+                    <input type="hidden" name="id_good" value="{{id_good}}">
+                    <input style="margin-top: 60px" class="btn btn-primary" type="submit" value="Изменить картинку">
+                </div>
+        </div>
+    </form>
+</div>
+<script>
+
+</script>
+{% endblock %}
+
+
