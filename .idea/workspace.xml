@@ -22,7 +22,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="waxom_HTML5_CSS3_Bootstrap" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,7 +46,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607343147751</updated>
       <workItem from="1607343152173" duration="689000" />
-      <workItem from="1607343865705" duration="325000" />
+      <workItem from="1607343865705" duration="636000" />
     </task>
     <task id="LOCAL-00001" summary="waxom: start">
       <created>1607343528372</created>
@@ -55,7 +55,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607343528372</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="waxom: start">
+      <created>1607344286406</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607344286406</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
