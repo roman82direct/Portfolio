@@ -46,6 +46,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607343147751</updated>
       <workItem from="1607343152173" duration="689000" />
+      <workItem from="1607343865705" duration="325000" />
     </task>
     <task id="LOCAL-00001" summary="waxom: start">
       <created>1607343528372</created>
@@ -70,9 +71,16 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="waxom: start" />
     <option name="LAST_COMMIT_MESSAGE" value="waxom: start" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1607343940778">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1607343940778" />
   </component>
 </project>
