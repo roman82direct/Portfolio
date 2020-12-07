@@ -1,0 +1,133 @@
+<div class="contactpage">
+    <p class="contus">Контакты</p>
+
+    <div id="" class="contform">
+        <div class="contbl1">
+            <p class="getin">Get in touch with us</p>
+            <div class="allcont">Lorem ipsum dolor sit amet, consectetur adipisicing elit,sheets
+                containing Lorem Ipsum passages sed do, At vero eos et accusamus et<br>briusto odio digs qui blanditiis <br>
+                <br>
+                Leningradsky AVE 39, BLDG 79 <br>
+                MOSCOW 125167, Russia <br>
+                <br>
+                Telephone : +00 111 222 3333 <br>
+                <br>
+                FAX : +1 888 888 4444 <br>
+                <br>
+                <p class="mail1">Email:&nbsp;</p>
+                <p class="mailcont">mail@example.com</p>
+            </div>
+
+        </div>
+        <form action='index.php?act=regExp&c=mailer' method="post">
+            <fieldset style="border: none">
+                <label for="name">{{mesName}}</label>
+                <input style="margin-left: -2px" id="name" type="text" name="name" class="contformtxt" placeholder="Ваше имя" value="{{name}}">
+                <label for="tel">{{mesTel}}</label>
+                <input id="tel" type="text" name="tel" class="contformtxt" placeholder="Tel" value="{{tel}}">
+                <label for="mail">{{mesMail}}</label>
+                <input id="mail" type="text" name="email" class="contformtxt" placeholder="Email" value="{{mail}}">
+                <textarea class="message" name="message" placeholder="Сообщение">{{ messValue }}</textarea>
+                <input type="submit" class="contbutt" value="Отправить">
+<!--                <input id="validBut" type="button" value="Button">-->
+            </fieldset>
+        </form>
+    </div>
+    <p class="rout">Мы на карте</p>
+    <div class="map1">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A99812b4ff72bd9fb4d073b110b71dd8e28406eb2e9cde29ace19dcde933f4967&amp;width=1169&amp;height=298&amp;lang=ru_RU&amp;scroll=true"></script>
+    </div>
+</div>
+
+    <div class="footer">
+        <p class="footertext">&copy; Historical Games. All rights reserved | Design by W3layouts</p>
+    </div>
+
+{%if error%}
+<div style="display: block" id="modalOrder" class="modalOrder">
+    <div id="modalOrderContent" class="modalOrder_content">
+        <span id="closeModalOrder" class="close_modal_order">X</span>
+        <p>Попытка отправки: {{date}}</p>
+        <br>
+        <h4 class="orderTitle">{{mesName}}</h4>
+        <h4 class="orderTitle">{{mesTel}}</h4>
+        <h4 class="orderTitle">{{mesMail}}</h4>
+
+        <div class="yesNo">
+            <span id="ok" class="ok">OK</span>
+<!--            <span id="cancel" class="cancel">ОТМЕНА</span>-->
+        </div>
+    </div>
+</div>
+{%else%}
+
+<div {%if message%} style="display: block" {%endif%} id="modalOrder" class="modalOrder">
+    <div id="modalOrderContent" class="modalOrder_content">
+        <span id="closeModalOrder" class="close_modal_order">X</span>
+        <br>
+        <h4 class="orderTitle">{{message}}</h4>
+
+        <div class="yesNo">
+            <span id="ok" class="ok">OK</span>
+            <!--            <span id="cancel" class="cancel">ОТМЕНА</span>-->
+        </div>
+    </div>
+</div>
+{%endif%}
+
+<script>
+    // let validBut = document.getElementById('validBut');
+    // let validCont = document.getElementById('validCont');
+    let name = document.getElementById('name');
+    // let mail = document.getElementById('mail');
+    // let tel = document.getElementById('tel');
+
+    let modal = document.getElementById('modalOrder');
+    let closeModal = document.getElementById('closeModalOrder');
+    let ok = document.getElementById('ok')
+
+    // validBut.onclick = (event) => {
+    //     validCont.innerHTML = '';
+    //     event.preventDefault();
+    //     $.ajax({
+    //         url: '../models/form.php',
+    //         method: 'GET',
+    //         dataType: 'html',
+    //         data: {
+    //             name: name.value,
+    //             mail: mail.value,
+    //             tel: tel.value
+    //         },
+    //         success: function(html){
+    //             if (html){
+    //                 modal.style.display = 'block';
+    //                 validCont.innerHTML = html;
+    //             } else {
+    //                 validCont.innerText = 'Ошибка загрузки';
+    //             }
+    //         }
+    //     })
+    // }
+
+    ok.onclick = () => {
+    modal.style.display = 'none';
+    }
+    closeModal.onclick = function (){
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+    window.onkeydown = (event) => {
+        if (event.code == 'Enter' || event.code == 'NumpadEnter') {
+            closeModal.onclick();
+                // window.onkeydown = null;
+        } else if
+            (event.code == 'Escape') {
+            ok.onclick();
+        }
+    }
+
+</script>

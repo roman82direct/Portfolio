@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container center">
+    <h1>Вход</h1>
+    <form class="logform" role="form" action="index.php?act=login&c=user" method="POST" name="loginform">
+        <div class="form-group">
+        <label for="login">Логин</label>
+        <input type="login" class="form-control" name="userlogin" id="login" placeholder="Login">
+        </div>
+        <div class="form-group">
+        <label for="password">Пароль</label>
+        <input type="password" class="form-control" name="userpassword" id="password" placeholder="Password">
+        </div>
+
+        <button type="submit" class="btn btn-default">Отправить</button>
+    </form>
+        <hr>
+    <a href="index.php?act=registration&c=user">Зарегистрироваться</a>
+</div>
+{% endblock %}

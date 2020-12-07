@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if not user %}
+<div class="alert alert-info">Покупка доступна только зарегистрированным пользователям</div>
+{% endif %}
+<div class="gallery" id="goods">
+  <div id="products" class="galbl">
+        {% for good in goods %}
+        <div class="galitem">
+            <img src="public/catalogImg/{{ good.catalogImg }}" alt="{{ good.name }}">
+            <div class="overlay" id="over_{{good.id_good}}"></div>
+            <h3>{{ good.name }}</h3>
+            <p class="itemId">{{ good.id_good }}</p>
+            <p class="itemprice">{{ good.price }}$.</p>
+        {% if user %}
+          <form class="itemForm" action="index.php?act=buy&c=catalog" method="post">
+              <input type="hidden" name="add" value="{{ good.id_good }}">
+              <input type="submit" value="В корзину" class="btn btn-primary">
+          </form>
+         {% endif %}
+
+<!--Модальные окна на каждую карточку-->
+            <div style="display: none" id="modalGood_{{good.id_good}}" class="modalGood">
+                <div id="modalGoodContent_{{good.id_good}}" class="modalGood_content">
+                    <span id="closeModalGood_{{good.id_good}}" class="close_modal_order">X</span>
+                    <br>
+                    <h4 class="orderTitle">Наименование: {{ good.name }}</h4>
+                    <h4 class="orderTitle">Цена: {{ good.price }}$</h4>
+                    <div class="modalInfo">
+                        <img src="public/catalogImg/{{good.catalogImg}}">
+                        <p>{{good.discription}}</p>
+                    </div>
+
+                    <div class="yesNo">
+                        <span id="ok_{{good.id_good}}" class="ok">OK</span>
+                        <!--            <span id="cancel" class="cancel">ОТМЕНА</span>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+  </div>
+
+</div>
+<a href="#" id="showMore" data-user="{{ user.id }}" class="show">Показать ещё...</a>
+{% include "contact.html" %}
+
+<script>
+    // отработка показа доп карточек в галерее AJAX
+    let showbutton = document.getElementById('showMore');
+    let cont = document.getElementById('products');
+    let textId = document.getElementsByClassName('itemId');
+
+    showbutton.onclick = (event) => {
+        event.preventDefault();
+
+        jQuery.ajax({   //$.ajax
+            url: './models/showNext.php',
+            method: 'GET',
+            dataType: 'html',
+            data: {
+                next: textId[textId.length - 1].innerText,
+                user: showbutton.dataset.user
+            },
+            // data: "next=" + textId[textId.length - 1].innerText +
+            success: function(html){
+                if (html){
+                    cont.innerHTML += html;
+                } else {
+                    showbutton.innerText = 'Все товары загружены';
+                    showbutton.style.color = 'red';
+                    // showbutton.onclick = null;
+                }
+            }
+        })
+
+        let item = document.getElementsByClassName('overlay');
+        console.log(item.length)
+        for (var i = 0; i < item.length; i++){
+            item[i].onclick = showModalGood;
+        }
+    }
+
+    // показ модальных окон карточек
+    function showModalGood(event){
+        var card = event.target;
+        var cardNum = card.id.split("_")[1];
+        console.log(cardNum);
+        var modal = document.getElementById('modalGood_' + cardNum);
+        var close = document.getElementById('closeModalGood_' + cardNum);
+        let ok = document.getElementById('ok_' + cardNum);
+        modal.style.display = 'block';
+
+        close.onclick = function(){
+            modal.style.display = 'none';
+        };
+
+        ok.onclick = function(){
+            modal.style.display = 'none';
+        };
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        window.onkeydown = (event) => {
+            if (event.code == 'Escape'){
+                close.onclick();
+            }
+        }
+    }
+
+    let item = document.getElementsByClassName('overlay');
+    for (var i = 0; i < item.length; i++){
+        item[i].onclick = showModalGood;
+        // item[i].addEventListener('click', showModalGood);
+    }
+
+        // let show = (event) =>{
+        // let id = event.target;
+        // console.log('HELLO' + id);
+        // }
+
+</script>
+
+{% endblock %}

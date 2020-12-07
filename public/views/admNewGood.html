@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+
+    <h1>Новый товар</h1>
+    <p>Товар ID= {{id_good}} </p>
+
+    <form action="index.php?act=newGood&c=admin" method="post">
+<!--        <input type="hidden" id="id" name="goodId" value="{{id_good}}">-->
+        <label for="title">Наименование</label>
+        <input type="text" id="title" name="title" value="{{name}}">
+        <label for="price">Цена</label>
+        <input style="width: 50px" type="text" id="price" name="price" value="{{price}}">
+        <br>
+        <br>
+        <label for="discr">Описание</label> <br>
+        <textarea name="discr" id="discr" cols="62" rows="10">{{ discr }}</textarea>
+        <br>
+        <br>
+        <input type="submit" value="Сохранить" class="btn btn-primary">
+<!--        <input type="submit" value="Удалить товар из каталога" class="btn btn-primary">-->
+    </form>
+</div>
+<script>
+
+</script>
+{% endblock %}
+
+
