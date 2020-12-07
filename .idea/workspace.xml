@@ -11,11 +11,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e1c8d54-1f2e-45de-a8f1-27767d4242d7" name="Default Changelist" comment="Gamers: start">
-      <change beforePath="$PROJECT_DIR$/.idea/Portfolio.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP_level2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/PHP_level2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamers.PHP2.OOP.MVC.TWIG.PDO" beforeDir="false" afterPath="$PROJECT_DIR$/Gamers.PHP2.OOP.MVC.TWIG.PDO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gamers.PHP2.OOP.MVC.TWIG.PDO/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Gamers.PHP2.OOP.MVC.TWIG.PDO/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +31,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP 7.3" />
   <component name="ProjectId" id="1lKQ8SayBq8rQTxxethtsuaLmYm" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -43,6 +41,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -92,5 +91,15 @@
     <MESSAGE value="waxom: load" />
     <MESSAGE value="Gamers: start" />
     <option name="LAST_COMMIT_MESSAGE" value="Gamers: start" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="667" y="162" key="#PHP" timestamp="1607345638349">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="667" y="162" key="#PHP/0.0.1920.1040@0.0.1920.1040" timestamp="1607345638349" />
+    <state x="461" y="151" key="SettingsEditor" timestamp="1607345747010">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="461" y="151" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1607345747010" />
   </component>
 </project>
