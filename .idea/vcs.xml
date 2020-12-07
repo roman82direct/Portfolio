@@ -2,5 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Gamers.PHP2.OOP.MVC.TWIG.PDO" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/PHP_level2" vcs="Git" />
   </component>
 </project>
