@@ -10,7 +10,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8e1c8d54-1f2e-45de-a8f1-27767d4242d7" name="Default Changelist" comment="waxom: start" />
+    <list default="true" id="8e1c8d54-1f2e-45de-a8f1-27767d4242d7" name="Default Changelist" comment="waxom: load" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -70,9 +70,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="waxom: start" />
-    <option name="LAST_COMMIT_MESSAGE" value="waxom: start" />
+    <MESSAGE value="waxom: load" />
+    <option name="LAST_COMMIT_MESSAGE" value="waxom: load" />
   </component>
 </project>
